@@ -10,14 +10,14 @@ function InputBox({ setAnalytics, nextStep }) { // ✅ added nextStep
   const handleSubmit = async () => {
     try {
       // 🔥 Send feedback
-      await axios.post("http://127.0.0.1:8000/predict", {
+      await axios.post("https://feedback-backend-xve0.onrender.com/predict", {
         text,
         suggestion,
         rating
       });
 
       // 🔥 Get analytics
-      const res = await axios.get("http://127.0.0.1:8000/analytics");
+      const res = await axios.get("https://feedback-backend-xve0.onrender.com/analytics");
       setAnalytics(res.data);
 
       // 🔥 MOVE TO NEXT PAGE (IMPORTANT)
